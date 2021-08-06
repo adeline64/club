@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OffresController!
+{% endblock %}
+
+{% block body %}
+
+	<section id="team" class="team">
+		<div class="container">
+			<br><br><br>
+			<div class="row">
+				<br><br>
+				<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up">
+					<div class="member">
+						<div class="pic"><img src="assets/images/un.jpg" class="img-fluid" alt=""></div>
+						<div class="member-info">
+							<h4>Les cours Personal
+							</h4>
+							<ul style="color:white" ;>
+								<li>
+									Un coach 100% dédié à vos besoins
+								</li>
+								<li>Un cours quand vous voulez ou vous voulez
+								</li>
+								<li>
+
+									En live ou présentiel
+
+								</li>
+								<li>
+									Débutant ou sportif
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+				<br><br>
+
+				<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+					<div class="member">
+						<div class="pic"><img src="assets/images/deux.jpg" class="img-fluid" alt=""></div>
+						<div class="member-info">
+							<h4>Les cours Community</h4>
+							<ul style="color:white" ;>
+								<li>
+									Un coach pour vous accompagner
+								</li>
+								<li>
+									Du partage avec d’autres sportifs
+
+								</li>
+								<li>
+
+									En live ou présentiel
+
+								</li>
+								<li>
+									Débutant ou sportif
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+					<div class="member">
+						<div class="pic"><img src="assets/images/trois.jpg" class="img-fluid" alt=""></div>
+						<div class="member-info">
+							<h4>Retour client</h4>
+							{% if (avis is defined) %}
+								{% for avi in avis|slice(0, 1) %}
+									<p id="test" style="color:white">
+
+										{{ avi.description }}
+
+										<br>
+
+									</p>
+									<br>
+									<p style = "color:white">
+										Envie de voir d'avantage
+										<a class="nav-link" style="color:white" href="{{path('liste_avis') }}">d'avis</a>
+									</p>
+								{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

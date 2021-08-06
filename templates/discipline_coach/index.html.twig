@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Discipline index
+{% endblock %}
+
+{% block body %}
+
+<br>
+
+				<h2 style="text-align:center">Rechercher votre coach</h2>
+			
+
+	{# <div class="container-fluidbg-1text-center">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+		<div class="container">
+			<br/>
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10 col-lg-8"> #}
+					{# {{ form_start(formDiscipline,{'attr': {'class': 'card card-sm'}}) }} #}
+					{# {{ form_start(formDiscipline,{'action': path('discipline_coach_index'), 'method': 'POST','attr': {'class': 'card card-sm'}}) }} #}
+					{# <div class="card-body row no-gutters align-items-center">
+						<div class="col-auto">
+							<i class="fas fa-search h4 text-body"></i>
+						</div>
+						<!--end of col-->
+						<div class="col"> #}
+							{# {{form_widget(formDiscipline.nom,{'attr': {'class': 'form-control form-control-lg form-control-borderless'}}) }} #}
+						{# </div>
+						<div>
+						{# {{form_widget(formDiscipline.Coach,{'attr': {'class': 'hidden'}}) }} #}
+						{# </div> #}
+							<!--end of col-->
+							{# <div class="col-auto"> #}
+								{# <button class="btn btn-lg btn-recherche" type="submit">Rechercher</button> #}
+								{# {{ form_widget(formDiscipline.submit,{'attr': {'class': 'btn btn-lg btn-recherche'}}) }} #}
+							{# </div>
+							<!--end of col-->
+						</div> #}
+						{# {{ form_end(formDiscipline)}} #}
+					{# </div>
+					<!--end of col-->
+				</div>
+			</div>
+		</div>
+	</div> #}
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<div class="container">
+		<br/>
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-10 col-lg-8">
+				<form class="card card-sm"  action="{{ path("search") }}">
+					<div class="card-body row no-gutters align-items-center">
+						<div class="col-auto">
+							<i class="fas fa-search h4 text-body"></i>
+						</div>
+						<!--end of col-->
+						<div class="col">
+							<input class="form-control form-control-lg form-control-borderless" name="search" type="search" placeholder="Rechercher une discipline">
+						</div>
+						<!--end of col-->
+						<div class="col-auto">
+							<button class="btn btn-lg btn-recherche" type="submit">Rechercher</button>
+						</div>
+						<!--end of col-->
+					</div>
+				</form>
+			</div>
+			<!--end of col-->
+		</div>
+	</div>
+
+<div class="container-fluid bg-1 text-center">
+		<br>
+		<div class="row">
+		
+			{% if (disciplines is defined) %}
+			
+				{% set compteur = 0 %}
+				{% for disc in disciplines %}
+					{% if compteur == 3 %}
+					</div>
+					<div class="row">
+					{% endif %}
+					<div
+						class="col-sm-4">
+						<h2>
+							{{ disc.nom }}</h2>
+<br>
+						 {% for disc in disc.Coach %}
+  								<p>Coach : {{ disc.nom}}</p>
+								<p>Ville : {{ disc.ville}}</p>
+								<br>
+ 
+ 						 {% endfor %}
+						
+					</div>
+					<br>
+
+
+					{% set compteur = compteur + 1 %}
+					<br>
+				{% endfor %}
+
+			{% else %}
+				<p>pas de disciplines entrer ou existante</p> 
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

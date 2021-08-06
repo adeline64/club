@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+
+<section id="about" class="about">
+		<div class="container">
+			<h2 class="quisommesnous">Inscription</h2>
+			<br>
+			<div class="row no-gutters">
+				<div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+					{{ form_start(registrationForm,{'attr': {'class': 'php-email-form'}}) }}
+					<div class="form-row">
+						
+						<div class="col-lg-6 form-group">
+							{{form_label(registrationForm.email, 'EMAIL', {'label_attr': {'class': 'formulaire'}})}}
+							{{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+						</div>
+						<div class="col-lg-6 form-group">
+							{{form_label(registrationForm.plainPassword, 'PASSWORD', {'label_attr': {'class': 'formulaire'}})}}
+							{{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+						</div>
+
+						<div class="text-center">
+
+							<button type="submit" id="button" class="btn btn-valide">Envoyer</button>
+						</div>
+						<br>
+					</div>
+				
+					{{ form_end(registrationForm) }}
+					<br>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    {% endblock %}
